@@ -18,7 +18,7 @@ npm run build
 
 serve -s build
 
-### деплой
+### деплой з вітки master
 
 npm run deploy
 
