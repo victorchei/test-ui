@@ -33,6 +33,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <h1>Перевірка дипломних робіт</h1>
       <Input type="file" onChange={onChange} />
       {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
     </div>
