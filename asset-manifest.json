@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "//victorchei.github.io/diploma-ui/static/css/main.6b352c76.css",
-    "main.js": "//victorchei.github.io/diploma-ui/static/js/main.2001e9df.js",
-    "index.html": "//victorchei.github.io/diploma-ui/index.html",
-    "main.6b352c76.css.map": "//victorchei.github.io/diploma-ui/static/css/main.6b352c76.css.map",
-    "main.2001e9df.js.map": "//victorchei.github.io/diploma-ui/static/js/main.2001e9df.js.map"
+    "main.css": "//victorchei.github.io/test-ui/static/css/main.6b352c76.css",
+    "main.js": "//victorchei.github.io/test-ui/static/js/main.2001e9df.js",
+    "index.html": "//victorchei.github.io/test-ui/index.html",
+    "main.6b352c76.css.map": "//victorchei.github.io/test-ui/static/css/main.6b352c76.css.map",
+    "main.2001e9df.js.map": "//victorchei.github.io/test-ui/static/js/main.2001e9df.js.map"
   },
   "entrypoints": [
     "static/css/main.6b352c76.css",
