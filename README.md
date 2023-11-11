@@ -14,7 +14,7 @@ https://victorchei.github.io/test-ui/
 ### Запуск в режимі розробки
 `npm run start`
 
-## Збілдити
+### Запуск білду
 `npm run build`
 
 ### Запуск режимі серверу
