@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "baseUrl": ".",    
+    "baseUrl": ".",
     "module": "esnext",
-    "target": "es2021",
+    "target": "es6",
     "lib": ["es2021", "dom"],
     "sourceMap": true,
     "allowJs": true,
