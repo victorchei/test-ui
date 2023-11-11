@@ -1,9 +1,9 @@
 import { Input } from '@mui/material'
 import React from 'react'
-import ControlledTreeView from './components/ControlledTreeView'
-import './style/index.css'
-import { check } from './validator'
-import { ErrorsType } from './validator/src/errors'
+import { check } from '../validator'
+import { ErrorsType } from '../validator/src/errors'
+import ControlledTreeView from './ControlledTreeView'
+import '../style/index.css'
 
 import { GlobalWorkerOptions } from 'pdfjs-dist'
 GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.js'
