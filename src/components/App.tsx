@@ -37,12 +37,10 @@ export default function App() {
         Сервіс для перевірки дипломних робіт
       </Typography>
       <Stack direction="column" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
-        <label htmlFor="file-input">Завантажте дипломну роботу у форматі ПДФ</label>
+        <label htmlFor="file-input" style={{marginBottom: '11px'}}>Завантажте дипломну роботу у форматі ПДФ</label>
         <Input sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
       </Stack>
-      <Typography
-        sx={{ textAlign: 'center', m: '5% auto 2%', mb: 4, maxWidth: '500px' }}
-      >
+      <Typography sx={{ textAlign: 'center', m: '5% auto 2%', mb: 4, maxWidth: '500px' }}>
         Якщо Ви знайшли баги в нашому сервісі або у Вас є пропозиції щодо його вдосконалення, будь ласка, заповніть
         форму зворотнього зв'язку
       </Typography>
@@ -56,6 +54,18 @@ export default function App() {
           Форма зворотнього зв'язку
         </Button>
       </Typography>
+
+      <div className="authors" style={{ margin: '70px 50px' }}>
+        <h3>Автори:</h3>
+        <p>Желізко Віктор Вікторович</p>
+        <p>Кучерук Ольга Віталіївна</p>
+      </div>
+
+      {/* <Typography className="authors" style={{ margin: '70px 50px' }}>
+        <h3>Автори:</h3>
+        <p>Желізко Віктор Вікторович</p>
+        <p>Кучерук Ольга Віталіївна</p>
+      </Typography> */}
 
       {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
     </div>
