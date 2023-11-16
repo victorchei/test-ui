@@ -50,6 +50,7 @@ export default function App() {
       <Typography sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
         <Button
           variant="contained"
+          target="_blank"
           href="https://docs.google.com/forms/d/16xVuAHBVKhGZUYt_PlRCJFbGpmtUr8iG_eYY0cCm-rM/edit"
         >
           Форма зворотнього зв'язку
