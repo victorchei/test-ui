@@ -1,12 +1,18 @@
 import { Button, Input, Stack, Typography } from '@mui/material'
+import { GlobalWorkerOptions } from 'pdfjs-dist'
 import React from 'react'
+import { CheckConfig } from 'src/validator/src/config/mainConfig'
 import '../style/index.css'
 import { check } from '../validator'
 import { ErrorsType } from '../validator/src/errors'
 import ControlledTreeView from './ControlledTreeView'
-
-import { GlobalWorkerOptions } from 'pdfjs-dist'
 GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.js'
+
+const config: CheckConfig = {
+  chapterSize: [1, 7],
+  isChapterConclusionRequired: true,
+  refListMinLen: undefined,
+}
 
 export default function App() {
   const [loading, setLoading] = React.useState(false)
@@ -25,7 +31,7 @@ export default function App() {
         reader.readAsArrayBuffer(file)
       })
 
-      const data = await check(fileData)
+      const data = await check(fileData, config)
       setErrorsData(data)
     }
     setLoading(false)
