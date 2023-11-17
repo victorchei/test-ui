@@ -38,7 +38,7 @@ export default function App() {
   }
 
   return (
-    <div className="App" style={{ marginTop: '7%' }}>
+    <div className="App">
       <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '4rem', m: 2, mb: 4 }}>
         Сервіс для перевірки дипломних робіт
       </Typography>
