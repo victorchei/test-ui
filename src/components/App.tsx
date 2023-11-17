@@ -1,12 +1,18 @@
-import { Input, Stack, Typography } from '@mui/material'
+import { Button, Input, Stack, Typography } from '@mui/material'
+import { GlobalWorkerOptions } from 'pdfjs-dist'
 import React from 'react'
+import { CheckConfig } from 'src/validator/src/config/mainConfig'
 import '../style/index.css'
 import { check } from '../validator'
 import { ErrorsType } from '../validator/src/errors'
 import ControlledTreeView from './ControlledTreeView'
-
-import { GlobalWorkerOptions } from 'pdfjs-dist'
 GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.js'
+
+const config: CheckConfig = {
+  chapterSize: [1, 7],
+  isChapterConclusionRequired: true,
+  refListMinLen: undefined,
+}
 
 export default function App() {
   const [loading, setLoading] = React.useState(false)
@@ -25,7 +31,7 @@ export default function App() {
         reader.readAsArrayBuffer(file)
       })
 
-      const data = await check(fileData)
+      const data = await check(fileData, config)
       setErrorsData(data)
     }
     setLoading(false)
@@ -33,15 +39,44 @@ export default function App() {
 
   return (
     <div className="App">
-      <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
-        Сервіс для перерки дипломних робіт
+      <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '4rem', m: 2, mb: 4 }}>
+        Сервіс для перевірки дипломних робіт
       </Typography>
       <Stack direction="column" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
-        <label htmlFor="file-input">Завантажте дипломну роботу у форматі ПДФ</label>
+        <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
+          Завантажте дипломну роботу у форматі ПДФ
+        </label>
         <Input sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
       </Stack>
 
       {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
+
+      <Typography sx={{ textAlign: 'center', m: '5% auto 2%', mb: 4, maxWidth: '500px' }}>
+        Якщо Ви знайшли баги в нашому сервісі або у Вас є пропозиції щодо його вдосконалення, будь ласка, заповніть
+        форму зворотнього зв'язку
+      </Typography>
+
+      <Typography sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
+        <Button
+          variant="contained"
+          target="_blank"
+          href="https://docs.google.com/forms/d/16xVuAHBVKhGZUYt_PlRCJFbGpmtUr8iG_eYY0cCm-rM/edit"
+        >
+          Форма зворотнього зв'язку
+        </Button>
+      </Typography>
+
+      <div className="authors" style={{ margin: '70px 50px' }}>
+        <h3>Автори:</h3>
+        <p>Желізко Віктор Вікторович</p>
+        <p>Кучерук Ольга Віталіївна</p>
+      </div>
+
+      {/* <Typography className="authors" style={{ margin: '70px 50px' }}>
+        <h3>Автори:</h3>
+        <p>Желізко Віктор Вікторович</p>
+        <p>Кучерук Ольга Віталіївна</p>
+      </Typography> */}
     </div>
   )
 }
