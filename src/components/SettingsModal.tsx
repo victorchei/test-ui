@@ -3,26 +3,29 @@ import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { CheckConfig } from 'src/validator/src/config/mainConfig'
-import { SettingsForm } from './SettingsForm'
+import { CheckConfig } from 'src/validator/types'
+import { SettingsForm, StartConfig } from './SettingsForm'
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute' as const,
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  maxWidth: 600,
+  width: '95vw',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  maxHeight: '90vh',
+  overflow: 'scroll',
 }
 
 export const SettingsModal = ({
   config,
   setConfig,
 }: {
-  config: CheckConfig
+  config: StartConfig
   setConfig: React.Dispatch<React.SetStateAction<CheckConfig>>
 }) => {
   const [open, setOpen] = React.useState(false)
