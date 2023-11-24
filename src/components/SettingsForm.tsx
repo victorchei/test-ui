@@ -22,7 +22,7 @@ export type StartConfig = {
     maidField10: boolean
     smallField1: boolean
     smallField2: boolean
-    smallField3: boolean
+    smallField3: string
     smallField4: boolean
   }
 }
@@ -46,7 +46,7 @@ export const startConfig: StartConfig = {
     maidField10: true,
     smallField1: true,
     smallField2: true,
-    smallField3: true,
+    smallField3: 'ДУ «Житомирська політехніка».23.121.12.000 - ПЗ',
     smallField4: true,
   },
 }
@@ -284,7 +284,7 @@ export const SettingsForm = ({
               </div>
             </Stack>
             <Stack direction="row" alignItems="center" justifyContent="space-between">
-              <div>Значення обовязкового поля 6 проф. код</div>
+              <div>Значення обовязкового поля 6 проф. код(велика рамка)</div>
               <div>
                 <Controller
                   control={control}
@@ -402,20 +402,12 @@ export const SettingsForm = ({
               </div>
             </Stack>
             <Stack direction="row" alignItems="center" justifyContent="space-between">
-              <div>Поле малої рамки 3 має бути заповненим?</div>
+              <div>Значення обовязкового поля 3 проф. код(мала рамка)</div>
               <div>
                 <Controller
                   control={control}
                   name="smallField3"
-                  render={({ field }) => {
-                    return (
-                      <FormControlLabel
-                        sx={{ ml: 2 }}
-                        control={<Switch {...field} checked={field.value} />}
-                        label={field.value?.toString()}
-                      />
-                    )
-                  }}
+                  render={({ field }) => <TextField fullWidth {...field} />}
                 />
               </div>
             </Stack>
