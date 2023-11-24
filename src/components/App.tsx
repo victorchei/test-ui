@@ -27,8 +27,8 @@ export default function App() {
         reader.readAsArrayBuffer(file)
       })
 
-      const {isFrame, frameConfig, ...rest} = config
-      const newConfig = isFrame ? {...rest, frameConfig} : rest
+      const { isFrame, frameConfig, ...rest } = config
+      const newConfig = isFrame ? { ...rest, frameConfig } : rest
 
       const data = await check(fileData, newConfig)
       setErrorsData(data)

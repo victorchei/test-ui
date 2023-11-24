@@ -91,7 +91,7 @@ export const SettingsForm = ({
         chapterSize: [data.chapterSizeMin, data.chapterSizeMax],
         isFrame: data.isFrame,
         frameConfig: {
-          mainFramePageNum: data.isFrame ? data.mainFramePageNum : startConfig.frameConfig.mainFramePageNum,
+          mainFramePageNum: data.isFrame ? +data.mainFramePageNum : +startConfig.frameConfig.mainFramePageNum,
           maidField1: data.isFrame ? data.maidField1 : startConfig.frameConfig.maidField1,
           maidField2: data.isFrame ? data.maidField2 : startConfig.frameConfig.maidField2,
           maidField3: data.isFrame ? data.maidField3 : startConfig.frameConfig.maidField3,
