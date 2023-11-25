@@ -1,22 +1,18 @@
 import { Button, Input, Stack, Typography } from '@mui/material'
 import { GlobalWorkerOptions } from 'pdfjs-dist'
-import React from 'react'
-import { CheckConfig } from 'src/validator/src/config/mainConfig'
+import React, { useState } from 'react'
 import '../style/index.css'
 import { check } from '../validator'
 import { ErrorsType } from '../validator/src/errors'
 import ControlledTreeView from './ControlledTreeView'
+import { StartConfig, startConfig } from './SettingsForm'
+import { SettingsModal } from './SettingsModal'
 GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.js'
 
-const config: CheckConfig = {
-  chapterSize: [1, 7],
-  isChapterConclusionRequired: true,
-  refListMinLen: undefined,
-}
-
 export default function App() {
-  const [loading, setLoading] = React.useState(false)
-  const [errorsData, setErrorsData] = React.useState<ErrorsType>({})
+  const [loading, setLoading] = useState(false)
+  const [errorsData, setErrorsData] = useState<ErrorsType>({})
+  const [config, setConfig] = useState<StartConfig>(startConfig)
 
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoading(true)
@@ -31,7 +27,10 @@ export default function App() {
         reader.readAsArrayBuffer(file)
       })
 
-      const data = await check(fileData, config)
+      const { isFrame, frameConfig, ...rest } = config
+      const newConfig = isFrame ? { ...rest, frameConfig } : rest
+
+      const data = await check(fileData, newConfig)
       setErrorsData(data)
     }
     setLoading(false)
@@ -42,6 +41,9 @@ export default function App() {
       <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '4rem', m: 2, mb: 4 }}>
         Сервіс для перевірки дипломних робіт
       </Typography>
+
+      <SettingsModal config={config} setConfig={setConfig} />
+
       <Stack direction="column" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
         <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
           Завантажте дипломну роботу у форматі ПДФ
