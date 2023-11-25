@@ -11,14 +11,15 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  maxWidth: 600,
-  width: '95vw',
+  maxWidth: '90vw',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
   maxHeight: '90vh',
-  overflow: 'scroll',
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  paddingTop: '0',
 }
 
 export const SettingsModal = ({
