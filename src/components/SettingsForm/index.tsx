@@ -150,6 +150,7 @@ export const SettingsForm = ({
           Застосувати
         </Button>
       </Stack>
+      <Divider sx={{ margin: '10px 0' }} />
       <Typography sx={{ textAlign: 'center', fontSize: '1.5rem', m: 2 }}>Загальні налаштування</Typography>
       <Stack direction="column" spacing="6px">
         {firstViewConfig.map((item) => (
@@ -168,8 +169,6 @@ export const SettingsForm = ({
           </Stack>
         </>
       )}
-
-      <Divider sx={{ margin: '10px 0' }} />
     </form>
   )
 }
