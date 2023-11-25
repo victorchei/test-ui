@@ -72,7 +72,7 @@ export default function App() {
         <h3>Автори:</h3>
         <p>Желізко Віктор Вікторович</p>
         <p>Кучерук Ольга Віталіївна</p>
-        <p>Версія від: 20.11.2023</p>
+        <p>Версія від: 25.11.2023</p>
       </div>
 
       {/* <Typography className="authors" style={{ margin: '70px 50px' }}>
