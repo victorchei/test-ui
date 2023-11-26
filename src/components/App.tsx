@@ -37,43 +37,60 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '4rem', m: 2, mb: 4 }}>
-        Сервіс для перевірки дипломних робіт
-      </Typography>
-
-      <SettingsModal config={config} setConfig={setConfig} />
-
-      <Stack direction="column" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
-        <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
-          Завантажте дипломну роботу у форматі ПДФ
-        </label>
-        <Input sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
-      </Stack>
-
-      {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
-
-      <Typography sx={{ textAlign: 'center', m: '5% auto 2%', mb: 4, maxWidth: '500px' }}>
-        Якщо Ви знайшли баги в нашому сервісі або у Вас є пропозиції щодо його вдосконалення, будь ласка, заповніть
-        форму зворотнього зв'язку
-      </Typography>
-
-      <Typography sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
-        <Button
-          variant="contained"
-          target="_blank"
-          href="https://docs.google.com/forms/d/16xVuAHBVKhGZUYt_PlRCJFbGpmtUr8iG_eYY0cCm-rM/edit"
+    <Stack direction="column" justifyContent="space-between" className="App">
+      <div>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: '4rem',
+            textAlign: 'center',
+            m: 2,
+            mb: 4,
+            '@media (max-width: 900px)': {
+              fontSize: '3rem',
+            },
+            '@media (max-width: 600px)': {
+              fontSize: '2rem',
+            },
+          }}
         >
-          Форма зворотнього зв'язку
-        </Button>
-      </Typography>
+          Сервіс для перевірки дипломних робіт
+        </Typography>
 
-      <div className="authors" style={{ margin: '70px 50px' }}>
-        <h3>Автори:</h3>
-        <p>Желізко Віктор Вікторович</p>
-        <p>Кучерук Ольга Віталіївна</p>
-        <p>Версія від: 25.11.2023</p>
-      </div>     
-    </div>
+        <SettingsModal config={config} setConfig={setConfig} />
+
+        <Stack direction="column" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
+          <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
+            Завантажте дипломну роботу у форматі ПДФ
+          </label>
+          <Input sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
+        </Stack>
+
+        {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
+
+        <Typography sx={{ textAlign: 'center', m: '5% auto 2%', mb: 4, maxWidth: '500px' }}>
+          Якщо Ви знайшли баги в нашому сервісі або у Вас є пропозиції щодо його вдосконалення, будь ласка, заповніть
+          форму зворотнього зв'язку
+        </Typography>
+        <Typography sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
+          <Button
+            variant="contained"
+            target="_blank"
+            href="https://docs.google.com/forms/d/16xVuAHBVKhGZUYt_PlRCJFbGpmtUr8iG_eYY0cCm-rM/edit"
+          >
+            Форма зворотнього зв'язку
+          </Button>
+        </Typography>
+      </div>
+
+      <div className="authors" style={{ margin: 'auto 50px 50px 50px' }}>
+        <Typography component="h3">Автори:</Typography>
+        <Typography variant="body1">Желізко Віктор Вікторович</Typography>
+        <Typography variant="body1">Кучерук Ольга Віталіївна</Typography>
+        <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+          Версія від: 26.11.2023
+        </Typography>
+      </div>
+    </Stack>
   )
 }
