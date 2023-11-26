@@ -30,11 +30,11 @@ export type StartConfig = {
 
 export const startConfig: StartConfig = {
   refListMinLen: 0,
-  chapterSize: [1, 7],
+  chapterSize: [1, 5],
   isChapterConclusionRequired: true,
   isFrame: false,
   frameConfig: {
-    mainFramePageNum: 2,
+    mainFramePageNum: 4,
     maidField1: true,
     maidField2: false,
     maidField3: true,
