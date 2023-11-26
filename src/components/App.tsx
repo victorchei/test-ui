@@ -73,13 +73,7 @@ export default function App() {
         <p>Желізко Віктор Вікторович</p>
         <p>Кучерук Ольга Віталіївна</p>
         <p>Версія від: 25.11.2023</p>
-      </div>
-
-      {/* <Typography className="authors" style={{ margin: '70px 50px' }}>
-        <h3>Автори:</h3>
-        <p>Желізко Віктор Вікторович</p>
-        <p>Кучерук Ольга Віталіївна</p>
-      </Typography> */}
+      </div>     
     </div>
   )
 }
