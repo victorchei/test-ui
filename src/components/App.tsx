@@ -1,6 +1,6 @@
 import { Button, Input, Stack, Typography } from '@mui/material'
 import { GlobalWorkerOptions } from 'pdfjs-dist'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../style/index.css'
 import { check } from '../validator'
 import { ErrorsType } from '../validator/src/errors'
@@ -13,28 +13,39 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [errorsData, setErrorsData] = useState<ErrorsType>({})
   const [config, setConfig] = useState<StartConfig>(startConfig)
+  const ref = React.useRef<HTMLInputElement>(null)
 
-  const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoading(true)
-    const inputElement = e.target as HTMLInputElement
+  const validate = async (inputElement: HTMLInputElement, currentConfig: StartConfig) => {
     if (inputElement.files && inputElement.files.length > 0) {
       const file = inputElement.files[0]
 
       const reader = new FileReader()
-      const fileData = await new Promise<ArrayBuffer>((resolve, reject) => {
+      const newFileData = await new Promise<ArrayBuffer>((resolve, reject) => {
         reader.onload = () => resolve(reader.result as ArrayBuffer)
         reader.onerror = reject
         reader.readAsArrayBuffer(file)
       })
 
-      const { isFrame, frameConfig, ...rest } = config
+      const { isFrame, frameConfig, ...rest } = currentConfig
       const newConfig = isFrame ? { ...rest, frameConfig } : rest
 
-      const data = await check(fileData, newConfig)
+      const data = await check(newFileData, newConfig)
       setErrorsData(data)
     }
+  }
+
+  const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoading(true)
+    const inputElement = e.target as HTMLInputElement
+    await validate(inputElement, config)
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (ref.current) {
+      validate(ref.current, config)
+    }
+  }, [config])
 
   return (
     <Stack direction="column" justifyContent="space-between" className="App">
@@ -63,7 +74,7 @@ export default function App() {
           <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
             Завантажте дипломну роботу у форматі ПДФ
           </label>
-          <Input sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
+          <Input inputRef={ref} sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
         </Stack>
 
         {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}

@@ -2,8 +2,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
-import { CheckConfig } from 'src/validator/types'
+import React from 'react'
 import { SettingsForm, StartConfig } from './SettingsForm'
 
 const style = {
@@ -27,13 +26,13 @@ export const SettingsModal = ({
   setConfig,
 }: {
   config: StartConfig
-  setConfig: React.Dispatch<React.SetStateAction<CheckConfig>>
+  setConfig: React.Dispatch<React.SetStateAction<StartConfig>>
 }) => {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const setConfigHandler = (config: CheckConfig) => {
+  const setConfigHandler = (config: StartConfig) => {
     setConfig(config)
     handleClose()
   }
