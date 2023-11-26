@@ -67,6 +67,18 @@ export default function App() {
         >
           Сервіс для перевірки дипломних робіт
         </Typography>
+        <Typography sx={{ margin: '0 32px', textAlign: 'center' }}>
+          Даний сервіс розроблено для валідації магістерських і бакалаврських робіт в форматі ПДФ.
+          <br />
+          Реалізловані сервіси перевірки змісту, списку літератури, посилання на літературу, технічних рамок.
+          <br />
+          Очікується додавання пеервірки підписів рисунків та таблиць.
+        </Typography>
+        <Typography sx={{ margin: '0 32px', textAlign: 'center' }} color="error">
+          УВАГА! При наявності рамки ОБОВ'ЯКОВО!!! потрібно запонити налаштування перевірки рамок.
+          <br />
+          (Зайдіть в НАЛАШТУВАННЯ ПЕРЕВІРКИ).
+        </Typography>
 
         <SettingsModal config={config} setConfig={setConfig} />
 
@@ -93,7 +105,6 @@ export default function App() {
           </Button>
         </Typography>
       </div>
-
       <div className="authors" style={{ margin: 'auto 50px 50px 50px' }}>
         <Typography component="h3">Автори:</Typography>
         <Typography variant="body1">Желізко Віктор Вікторович</Typography>
