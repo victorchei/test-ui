@@ -1,56 +1,9 @@
 import { Button, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { StartConfig } from 'src/helpers/getStartConfig'
 import { CheckConfig } from 'src/validator/types'
 import { FormInput } from './FormInput'
-
-export type StartConfig = {
-  isFrame: boolean
-  refListMinLen: number
-  chapterSize: [number, number]
-  isChapterConclusionRequired: boolean
-  frameConfig: {
-    mainFramePageNum: number
-    maidField1: boolean
-    maidField2: boolean
-    maidField3: boolean
-    maidField4: boolean
-    maidField5: boolean
-    maidField6: string
-    maidField7: boolean
-    maidField8: boolean
-    maidField9: boolean
-    maidField10: boolean
-    smallField1: boolean
-    smallField2: boolean
-    smallField3: string
-    smallField4: boolean
-  }
-}
-
-export const startConfig: StartConfig = {
-  refListMinLen: 0,
-  chapterSize: [1, 5],
-  isChapterConclusionRequired: true,
-  isFrame: false,
-  frameConfig: {
-    mainFramePageNum: 4,
-    maidField1: true,
-    maidField2: false,
-    maidField3: true,
-    maidField4: false,
-    maidField5: false,
-    maidField6: 'ДУ «Житомирська політехніка».23.121.12.000 - ПЗ',
-    maidField7: true,
-    maidField8: true,
-    maidField9: true,
-    maidField10: true,
-    smallField1: true,
-    smallField2: true,
-    smallField3: 'ДУ «Житомирська політехніка».23.121.12.000 - ПЗ',
-    smallField4: true,
-  },
-}
 
 const firstViewConfig = [
   { label: 'Мін к-сть літ. джерел', name: 'refListMinLen', type: 'number' },
@@ -62,26 +15,28 @@ const firstViewConfig = [
 
 const frameFormConfig = [
   { label: 'Номер сторінки великої рамки', name: 'mainFramePageNum', type: 'number' },
-  { label: 'Велика рамка поле 1 має бути заповненим?', name: 'maidField1', type: 'switch' },
-  { label: 'Велика рамка поле 2 має бути заповненим?', name: 'maidField2', type: 'switch' },
+  { label: 'Велика рамка поле 1 Розробив має бути заповненим?', name: 'maidField1', type: 'switch' },
+  { label: 'Велика рамка поле 2 Керівник має бути заповненим?', name: 'maidField2', type: 'switch' },
   { label: 'Велика рамка поле 3 має бути заповненим?', name: 'maidField3', type: 'switch' },
   { label: 'Поле 4 має бути заповненим?', name: 'maidField4', type: 'switch' },
   { label: 'Поле 5 має бути заповненим?', name: 'maidField5', type: 'switch' },
   { label: 'Значення обовязкового поля 6 проф. код(велика рамка)', name: 'maidField6', type: 'text' },
-  { label: 'Поле 7 має бути заповненим?', name: 'maidField7', type: 'switch' },
-  { label: 'Поле 8 має бути заповненим?', name: 'maidField8', type: 'switch' },
-  { label: 'Поле 9 має бути заповненим?', name: 'maidField9', type: 'switch' },
-  { label: 'Поле 10 має бути заповненим?', name: 'maidField10', type: 'switch' },
-  { label: 'Поле малої рамки 1 має бути заповненим?', name: 'smallField1', type: 'switch' },
-  { label: 'Поле малої рамки 2 має бути заповненим?', name: 'smallField2', type: 'switch' },
+  { label: 'Поле 7 Тип роботи має бути заповненим?', name: 'maidField7', type: 'switch' },
+  { label: 'Поле 8 Арк. має бути заповненим?', name: 'maidField8', type: 'switch' },
+  { label: 'Поле 9 Аркушів має бути заповненим?', name: 'maidField9', type: 'switch' },
+  { label: 'Поле 10 Група має бути заповненим?', name: 'maidField10', type: 'switch' },
+  { label: 'Поле 1 Розробив малої рамки Розробив має бути заповненим?', name: 'smallField1', type: 'switch' },
+  { label: 'Поле 2 Керівник малої рамки Керівник має бути заповненим?', name: 'smallField2', type: 'switch' },
   { label: 'Значення обовязкового поля 3 проф. код(мала рамка)', name: 'smallField3', type: 'text' },
-  { label: 'Поле малої рамки 4 має бути заповненим?', name: 'smallField4', type: 'switch' },
+  { label: 'Поле малої рамки 4 Арк. має бути заповненим?', name: 'smallField4', type: 'switch' },
 ] as const
 
 export const SettingsForm = ({
+  startConfig,
   config,
   setConfig,
 }: {
+  startConfig: StartConfig
   config: StartConfig
   setConfig: React.Dispatch<React.SetStateAction<CheckConfig>>
 }) => {
@@ -141,11 +96,16 @@ export const SettingsForm = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack
-        direction="row"
+        direction="column"
         alignItems="center"
         justifyContent="center"
-        sx={{ position: 'sticky', top: 0, paddingTop: '32px', backgroundColor: '#fff' }}
+        sx={{ position: 'sticky', zIndex: 1, top: 0, paddingTop: '16px', backgroundColor: '#fff' }}
       >
+        <Typography color="error" sx={{ textAlign: 'center', fontSize: '0.75rem' }}>
+          Зразок налаштувань. Форма може бути сконфігурована будь-яким чином. На порталі університету будуть доступні
+          дані студента і кафедри. Ці дані можна використовувати для автоматичного заповнення полів. Дана форма має бути
+          доступна для налаштування адміністратору сайту.
+        </Typography>
         <Button type="submit" variant="contained">
           Застосувати
         </Button>
