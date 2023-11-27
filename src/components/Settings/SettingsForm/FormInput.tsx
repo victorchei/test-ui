@@ -24,12 +24,12 @@ export const FormInput = (props: Props) => {
               <FormControlLabel
                 sx={{ ml: 2 }}
                 control={<Switch {...field} checked={field.value} />}
-                label={field.value ? "так" : "ні"}
+                label={field.value ? 'так' : 'ні'}
               />
             ) : type === 'number' ? (
-              <TextField inputProps={{ min: 0 }} type="number" sx={{width: 75}} autoFocus {...field} />
+              <TextField size="small" inputProps={{ min: 0 }} type="number" sx={{ width: 75 }} autoFocus {...field} />
             ) : (
-              <TextField fullWidth {...field} sx={{ minWidth: 250 }} />
+              <TextField size="small" fullWidth {...field} sx={{ minWidth: 250 }} />
             )
           }}
         />

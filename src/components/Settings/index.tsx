@@ -1,9 +1,11 @@
+import { Switch } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import { SettingsForm, StartConfig } from './SettingsForm'
+import { StartConfig, getStartConfig } from 'src/helpers/getStartConfig'
+import { SettingsForm } from './SettingsForm'
 
 const style = {
   position: 'absolute' as const,
@@ -21,14 +23,17 @@ const style = {
   paddingTop: '0',
 }
 
-export const SettingsModal = ({
+export const Settings = ({
   config,
   setConfig,
+  isMasterDefault,
 }: {
+  isMasterDefault: boolean
   config: StartConfig
   setConfig: React.Dispatch<React.SetStateAction<StartConfig>>
 }) => {
   const [open, setOpen] = React.useState(false)
+  const [value, setValue] = React.useState(isMasterDefault)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
@@ -37,12 +42,25 @@ export const SettingsModal = ({
     handleClose()
   }
 
+  const onChangeHandler = (_: any, checked: boolean) => {
+    setConfig(getStartConfig(checked))
+    setValue(checked)
+  }
+
   return (
     <div>
-      <Typography sx={{ textAlign: 'center', fontSize: '2rem', m: 2, mb: 4 }}>
-        <Button variant="contained" onClick={handleOpen}>
-          Налаштування перевірки
-        </Button>
+      
+      <Typography sx={{ margin: '0 32px', textAlign: 'center' }} color="error">
+        (для більш гнучкого встановлення вимог до перевірки натисніть
+        <Button onClick={handleOpen}>Налаштування перевірки</Button>
+        ).
+      </Typography>
+      <Typography sx={{ margin: '16px', textAlign: 'center' }}>
+        Виберіть кваліфікацію:
+        <br />
+        Бакалавр
+        <Switch onChange={onChangeHandler} checked={value} />
+        Магістр
       </Typography>
       {open && (
         <Modal
@@ -52,7 +70,7 @@ export const SettingsModal = ({
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <SettingsForm config={config} setConfig={setConfigHandler} />
+            <SettingsForm startConfig={getStartConfig(value)} config={config} setConfig={setConfigHandler} />
           </Box>
         </Modal>
       )}
