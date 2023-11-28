@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "//victorchei.github.io/test-ui/static/css/main.f745977e.css",
-    "main.js": "//victorchei.github.io/test-ui/static/js/main.32dad982.js",
+    "main.js": "//victorchei.github.io/test-ui/static/js/main.524db2a2.js",
     "index.html": "//victorchei.github.io/test-ui/index.html",
     "main.f745977e.css.map": "//victorchei.github.io/test-ui/static/css/main.f745977e.css.map",
-    "main.32dad982.js.map": "//victorchei.github.io/test-ui/static/js/main.32dad982.js.map"
+    "main.524db2a2.js.map": "//victorchei.github.io/test-ui/static/js/main.524db2a2.js.map"
   },
   "entrypoints": [
     "static/css/main.f745977e.css",
-    "static/js/main.32dad982.js"
+    "static/js/main.524db2a2.js"
   ]
 }
