@@ -22,8 +22,8 @@ export type StartConfig = {
   }
 }
 
-export const getStartConfig = (isMaster: boolean): StartConfig => {
-  const prfCode = `ІПЗ.КР.${isMaster ? 'М' : 'Б'} – 121 – 23 - ПЗ`
+export const getStartConfig = (isMaster: boolean, groupName: string): StartConfig => {
+  const prfCode = `${groupName}.КР.${isMaster ? 'М' : 'Б'} – 121 – 23 - ПЗ`
   return {
     refListMinLen: 0,
     chapterSize: [1, 5],
