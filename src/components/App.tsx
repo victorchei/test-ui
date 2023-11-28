@@ -1,6 +1,7 @@
 import { Input, Stack } from '@mui/material'
 import { GlobalWorkerOptions } from 'pdfjs-dist'
 import React, { useEffect, useState } from 'react'
+import { groupsConfig } from 'src/config/groupsConfig'
 import { StartConfig, getStartConfig } from 'src/helpers/getStartConfig'
 import '../style/index.css'
 import { check } from '../validator'
@@ -16,7 +17,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [errorsData, setErrorsData] = useState<ErrorsType>({})
   const isMasterDefault = true
-  const [config, setConfig] = useState<StartConfig>(getStartConfig(isMasterDefault))
+  const [config, setConfig] = useState<StartConfig>(getStartConfig(isMasterDefault, groupsConfig[0]))
   const ref = React.useRef<HTMLInputElement>(null)
 
   const validate = async (inputElement: HTMLInputElement, currentConfig: StartConfig) => {
