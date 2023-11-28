@@ -1,1 +1,1 @@
-export const groupsConfig = ['ІПЗ', 'ЗIПЗ', 'УІТП', 'КБ', 'КІ', 'КН', 'КТ']
+export const groupsConfig = ['ІПЗ', 'КБ', 'КІ', 'КН', 'КТ']
