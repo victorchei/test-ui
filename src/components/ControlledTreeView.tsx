@@ -3,7 +3,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { TreeItem } from '@mui/x-tree-view/TreeItem'
 import { TreeView } from '@mui/x-tree-view/TreeView'
 import React from 'react'
-import { errorMapper } from 'src/config/errorsConfig'
+import { defaultGroup, defaultRule, errorMapper } from 'src/config/errorsConfig'
 import { ErrorsType } from 'src/validator/src/errors'
 
 type Props = { errorsData: ErrorsType }
@@ -18,8 +18,6 @@ export default function ControlledTreeView({ errorsData }: Props) {
   //   return acc
   // }, [] as string[])
 
-  const defaultGroup = 'Інші помилки в оформлені рпоботи'
-  const defaultRule = 'Інші група помилок'
   return (
     <TreeView
       aria-label="controlled"

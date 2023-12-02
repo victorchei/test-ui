@@ -5,6 +5,9 @@ type ErrorMapper = {
   }
 }
 
+export const defaultGroup = 'Інші помилки в оформлені роботи'
+export const defaultRule = 'Інші група помилок'
+
 export const errorMapper: ErrorMapper = {
   title: {
     frame: 'Помилки оформлення рамки',
@@ -55,5 +58,9 @@ export const errorMapper: ErrorMapper = {
     rule2: 'Неправильний порядок',
     rule3: 'Неправильний символ',
     rule4: 'Відсутнє посилання',
+  },
+  addition: {
+    rule1: 'Неправильний порядок',
+    rule2: 'Неправильний підпис',
   },
 }
