@@ -71,7 +71,6 @@
       "/node_modules/",
       "/build/",
       "/src/components/",
-      "/src/validator/test.js",
       "src/validator/src/utils/parsePdfUtils/index.test.ts"
     ]
   }
