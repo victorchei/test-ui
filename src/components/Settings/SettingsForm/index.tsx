@@ -2,7 +2,7 @@ import { Button, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { StartConfig } from 'src/helpers/getStartConfig'
-import { CheckConfig } from 'src/validator/types'
+import { CheckConfig } from 'src/validator/src/types'
 import { FormInput } from './FormInput'
 
 const firstViewConfig = [
