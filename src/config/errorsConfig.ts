@@ -1,4 +1,4 @@
-import { ERROR_TYPE } from 'src/validator/src/errors'
+import { ERROR_TYPE } from 'src/validator/src/config/enums'
 
 type ErrorMapper = {
   title: Record<string, string>
