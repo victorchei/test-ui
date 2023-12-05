@@ -15,17 +15,17 @@ type ErrorMapper = {
   }
 }
 
-export const defaultGroup = 'Інші помилки в оформлені роботи'
-export const defaultRule = 'Інші група помилок'
+export const defaultGroup = 'Інші помилки в оформленні роботи'
+export const defaultRule = 'Інша група помилок'
 
 export const errorMapper: ErrorMapper = {
   title: {
-    [ERROR_TYPE.frame]: 'Помилки оформлення рамки',
+    [ERROR_TYPE.frame]: 'Помилки при оформленні рамки',
     [ERROR_TYPE.referenceList]: 'Помилки в списку використаних джерел',
-    [ERROR_TYPE.pagesFidelity]: 'Помилки в  змісті',
-    [ERROR_TYPE.picturesAndTables]: 'Помилки надписів рисунків та таблиць',
+    [ERROR_TYPE.pagesFidelity]: 'Помилки в змісті',
+    [ERROR_TYPE.picturesAndTables]: 'Помилки підписів до рисунків і таблиць',
     [ERROR_TYPE.referenceOrder]: 'Помилки порядку літературних джерел в роботі',
-    [ERROR_TYPE.abbreviation]: 'Помилки в абривіатурах',
+    [ERROR_TYPE.abbreviation]: 'Помилки в абревіатурах',
     [ERROR_TYPE.addition]: 'Помилки в додатках',
   },
   [ERROR_TYPE.referenceList]: {
@@ -33,8 +33,8 @@ export const errorMapper: ErrorMapper = {
     [REF_LIST_KEYS.rule1]: 'Кількість використаних джерел',
     [REF_LIST_KEYS.rule2]: 'Неправильний порядок джерел',
     [REF_LIST_KEYS.rule3]: 'Неправильна нумерація джерел',
-    [REF_LIST_KEYS.rule4]: 'Відсутні обовязкові атрибути у джерелах',
-    [REF_LIST_KEYS.rule5]: 'Відсутні обовязкові атрибути у джерелах',
+    [REF_LIST_KEYS.rule4]: `Відсутні обов'язкові атрибути у джерелах`,
+    [REF_LIST_KEYS.rule5]: `Відсутні обовя'зкові атрибути у джерелах`,
   },
   [ERROR_TYPE.referenceOrder]: {
     [REF_ORDER_ERROR_KEYS.rule1]: 'Неправильний формат чисел',
@@ -51,7 +51,7 @@ export const errorMapper: ErrorMapper = {
     [PAGES_FIDELITY_ERROR_KEYS.rule4]: 'Неправильна нумерація підрозділів',
     [PAGES_FIDELITY_ERROR_KEYS.rule5]: 'Неправильнa кількість підрозділів',
     [PAGES_FIDELITY_ERROR_KEYS.rule6]: 'Неправильно оформлена нумерація підрозділів',
-    [PAGES_FIDELITY_ERROR_KEYS.rule7]: 'Неправильний символ у нумерація підрозділів',
+    [PAGES_FIDELITY_ERROR_KEYS.rule7]: 'Неправильний символ у нумерації підрозділів',
     [PAGES_FIDELITY_ERROR_KEYS.rule8]: 'Відсутні висновки до розділу',
     [PAGES_FIDELITY_ERROR_KEYS.rule10]: 'Відсутній елемент змісту',
     [PAGES_FIDELITY_ERROR_KEYS.rule10_1]: 'Неправильний порядок',
@@ -60,9 +60,9 @@ export const errorMapper: ErrorMapper = {
   },
   [ERROR_TYPE.frame]: {
     [FRAME_ERROR_KEYS.rule1]: 'Невірний номер сторінки',
-    [FRAME_ERROR_KEYS.rule2]: 'Неправильно вказана загальна к-сть сторінок',
-    [FRAME_ERROR_KEYS.rule3]: 'Не заповнені поля',
-    [FRAME_ERROR_KEYS.rule4]: 'Не відповідність полів',
+    [FRAME_ERROR_KEYS.rule2]: 'Неправильно вказана загальна кількість сторінок',
+    [FRAME_ERROR_KEYS.rule3]: 'Незаповнені поля',
+    [FRAME_ERROR_KEYS.rule4]: 'Невідповідність полів',
   },
   [ERROR_TYPE.abbreviation]: {
     [ABBR_ERROR_KEYS.rule1]: 'Неправильне розташування',
@@ -75,10 +75,10 @@ export const errorMapper: ErrorMapper = {
     [PAGES_FIDELITY_ERROR_KEYS.rule2]: 'Неправильний підпис',
   },
   [ERROR_TYPE.picturesAndTables]: {
-    [PICTURES_TABLES_ERROR_KEYS.rule0]: 'Інші група помилок',
+    [PICTURES_TABLES_ERROR_KEYS.rule0]: 'Інша група помилок',
     [PICTURES_TABLES_ERROR_KEYS.rule1]: 'Неправильний порядок посилань',
     [PICTURES_TABLES_ERROR_KEYS.rule2]: 'Неправильний порядок нумерації підписів',
-    [PICTURES_TABLES_ERROR_KEYS.rule4]: 'Неправильний формат писилання на рисунок',
-    [PICTURES_TABLES_ERROR_KEYS.rule5]: 'Неправильний формат писилання на таблицю',
+    [PICTURES_TABLES_ERROR_KEYS.rule4]: 'Неправильний формат посилання на рисунок',
+    [PICTURES_TABLES_ERROR_KEYS.rule5]: 'Неправильний формат посилання на таблицю',
   },
 }
