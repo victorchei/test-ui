@@ -8,7 +8,7 @@ export const Authors = () => {
       <Typography variant="body1">Желізко Віктор Вікторович</Typography>
       <Typography variant="body1">Кучерук Ольга Віталіївна</Typography>
       <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-        Версія від: 04.12.2023
+        Версія від: 06.12.2023
       </Typography>
     </div>
   )
