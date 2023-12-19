@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { groupsConfig } from 'src/config/groupsConfig'
 import { StartConfig, getStartConfig } from 'src/helpers/getStartConfig'
 import { ErrorsType } from 'src/validator/src/types'
+import '../style/index.css'
 import { check } from '../validator'
 import { Authors } from './Authors'
 import ControlledTreeView from './ControlledTreeView'
 import { Feedback } from './Feedback'
 import { Settings } from './Settings'
 import { TopInfo } from './TopInfo'
-import '../style/index.css'
 GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.js'
 
 export default function App() {
@@ -61,9 +61,21 @@ export default function App() {
           <label htmlFor="file-input" style={{ marginBottom: '11px' }}>
             Завантажте дипломну роботу у форматі ПДФ
           </label>
-          <Input inputRef={ref} sx={{ maxWidth: 360 }} id="file-input" type="file" onChange={onChange} />
+          <Input
+            inputRef={ref}
+            sx={{ maxWidth: 360 }}
+            id="file-input"
+            type="file"
+            onChange={onChange}
+            inputProps={{ accept: 'application/pdf' }}
+            onClick={() => {
+              if (ref.current) {
+                ref.current.value = ''
+                setErrorsData({})
+              }
+            }}
+          />
         </Stack>
-
         {loading ? <div>Loading...</div> : <ControlledTreeView errorsData={errorsData} />}
 
         <Feedback />
