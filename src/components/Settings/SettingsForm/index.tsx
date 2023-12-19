@@ -7,16 +7,16 @@ import { FormInput } from './FormInput'
 
 const firstViewConfig = [
   { label: 'Мін к-сть літ. джерел', name: 'refListMinLen', type: 'number' },
-  { label: 'Мін к-сть літ. підрозділів', name: 'chapterSizeMin', type: 'number' },
-  { label: 'Макс к-сть літ. підрозділів', name: 'chapterSizeMax', type: 'number' },
+  { label: 'Мін к-сть підрозділів в розділі', name: 'chapterSizeMin', type: 'number' },
+  { label: 'Макс к-сть підрозділів в розділі', name: 'chapterSizeMax', type: 'number' },
   { label: 'Обовязкові висновки до підрозділу?', name: 'isChapterConclusionRequired', type: 'switch' },
   { label: 'Чи є рамка?', name: 'isFrame', type: 'switch' },
 ] as const
 
 const frameFormConfig = [
   { label: 'Номер сторінки великої рамки', name: 'mainFramePageNum', type: 'number' },
-  { label: 'Велика рамка поле 1 Розробив має бути заповненим?', name: 'maidField1', type: 'switch' },
-  { label: 'Велика рамка поле 2 Керівник має бути заповненим?', name: 'maidField2', type: 'switch' },
+  { label: 'Велика рамка поле 1 (Розробив) має бути заповненим?', name: 'maidField1', type: 'switch' },
+  { label: 'Велика рамка поле 2 (Керівник) має бути заповненим?', name: 'maidField2', type: 'switch' },
   { label: 'Велика рамка поле 3 має бути заповненим?', name: 'maidField3', type: 'switch' },
   { label: 'Поле 4 має бути заповненим?', name: 'maidField4', type: 'switch' },
   { label: 'Поле 5 має бути заповненим?', name: 'maidField5', type: 'switch' },

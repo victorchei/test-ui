@@ -75,9 +75,9 @@ export const errorMapper: ErrorMapper = {
     [PAGES_FIDELITY_ERROR_KEYS.rule2]: 'Неправильний підпис',
   },
   [ERROR_TYPE.picturesAndTables]: {
-    [PICTURES_TABLES_ERROR_KEYS.rule0]: 'Інша група помилок',
     [PICTURES_TABLES_ERROR_KEYS.rule1]: 'Неправильний порядок посилань',
     [PICTURES_TABLES_ERROR_KEYS.rule2]: 'Неправильний порядок нумерації підписів',
+    [PICTURES_TABLES_ERROR_KEYS.rule3]: 'Неправильний підпис',
     [PICTURES_TABLES_ERROR_KEYS.rule4]: 'Неправильний формат посилання на рисунок',
     [PICTURES_TABLES_ERROR_KEYS.rule5]: 'Неправильний формат посилання на таблицю',
   },
